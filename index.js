@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const bodyParser = require("body-parser");
 
 const usuariosRoute = require("./routes/usuarios.route");
+const filasRoute = require("./routes/filas.route");
 
 app.use(cors());
 app.use(helmet());
@@ -23,5 +24,6 @@ app.use((req, res, next) => {
   });
 
   app.use("/usuarios", usuariosRoute); // Rota de login
+  app.use("/filas", filasRoute); // Rota de FIlas
 
   module.exports = app; // Exporta o app para ser usado no server.js
