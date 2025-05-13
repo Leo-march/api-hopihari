@@ -28,7 +28,7 @@ exports.atualizarUsuario = async (req, res) => {
             "Resultado": resultados
         })
     } catch (error) {
-        return res.status(500).send({ "Mensagem": error })
+        return res.status(500).send({error})
     }
 }
 
@@ -54,7 +54,7 @@ exports.criarUsuario = async (req, res) => {
             "Resultado": resultados
         })
     } catch (error) {
-        return res.status(500).send({ "Mensagem": error })
+        return res.status(500).send({error})
     }
 }
 
@@ -93,6 +93,6 @@ exports.login = async (req, res) => {
 
     } catch (error) {
         console.error(error);
-        return res.status(500).send({ "Erro": error })
+        return res.status(500).send({error})
     }
 }
