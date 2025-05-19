@@ -14,3 +14,18 @@ exports.getNotificacoes = async (req, res) => {
        return res.status(500).send({"Mensagem": error})
     }
 }
+
+exports.putNotificacoes = async (req, res, next) => {
+    try{
+        const resultado = await mysql.execute(
+            `UPDATE notifications
+SET status = FALSE
+WHERE status = TRUE;
+`, [req.params.idNot]
+        )
+        res.status(201).send({
+            "Resultado": resultado
+        })
+    }catch (error) {
+        return res.status(500).send(error)
+}}
