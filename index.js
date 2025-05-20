@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const usuariosRoute = require("./routes/usuarios.route");
 const filasRoute = require("./routes/filas.route");
 const notificationsRoute = require("./routes/notification.route")
+const brinquedosRoute = require("./routes/brinquedos.route")
 
 app.use(cors());
 app.use(helmet());
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
   app.use("/usuarios", usuariosRoute); // Rota de login
   app.use("/filas", filasRoute); // Rota de FIlas
   app.use("/filas", filasRoute);
-  app.use("/Notifications", notificationsRoute);
+  app.use("/Notifications", notificationsRoute); // Rota de notificações
+  app.use("/brinquedos", brinquedosRoute); // Rota de brinquedos)
 
   module.exports = app; // Exporta o app para ser usado no server.js
