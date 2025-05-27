@@ -29,13 +29,29 @@ CREATE TABLE IF NOT EXISTS `hopi_hari_db`.`rides` (
   `name` VARCHAR(100) NOT NULL,
   `waiting_time` INT NOT NULL,
   `status` VARCHAR(50) NOT NULL,
-  `area` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`id`))
+  `id_areas` INT NOT NULL,
+  PRIMARY KEY (`id`, `id_areas`),
+  INDEX `fk_rides_areas1_idx` (`id_areas` ASC) VISIBLE,
+  CONSTRAINT `fk_rides_areas1`
+    FOREIGN KEY (`id_areas`)
+    REFERENCES `hopi_hari_db`.`areas` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 10
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
+
+
+-- -----------------------------------------------------
+-- Table `hopi_hari_db`.`areas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hopi_hari_db`.`areas` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `hopi_hari_db`.`users`
