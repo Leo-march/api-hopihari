@@ -12,9 +12,9 @@ exports.atualizarUsuario = async (req, res) => {
 
         const resultados = await mysql.execute(
             `UPDATE users
-                SET name        = ?,
-                    email     = ?,
-                    password   = ?
+                SET name = ?,
+                    email = ?,
+                    password = ?
                 where id = ?;`,
             [
                 req.body.name,
@@ -101,6 +101,39 @@ exports.login = async (req, res) => {
 
     } catch (error) {
         console.error(error);
+        return res.status(500).send({error})
+    }
+}
+
+exports.editarUsuario = async (req, res) => {
+    try {
+
+        // Criptografa a senha antes de armazená-la
+        const hash = await bcrypt.hash(req.body.password, 10);
+
+        const resultados = await mysql.execute(
+            `UPDATE users
+                SET first_name = ?,
+                    last_name = ?,
+                    email = ?
+                    password = ?
+                    birth_date = ?
+                    phone = ?`,
+            [
+                req.body.first_name,
+                req.body.last_name,
+                req.body.email,
+                req.body.password,
+                req.body.birth_date,
+                req.body.phone,
+                hash
+            ]
+        );
+        return res.status(201).send({
+            "Mensagem": "Usuário editado com sucesso!",
+            "Resultado": resultados
+        })
+    } catch (error) {
         return res.status(500).send({error})
     }
 }

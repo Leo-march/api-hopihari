@@ -25,10 +25,17 @@
     "phone": "14999999999"
 }
 
-INSERT INTO rides (name, waiting_time, status, area) VALUES
-('Montanha Mágica', 35, 'Muito Movimentado', 'A'),
-('Carrossel Encantado', 15, 'Normal', 'B'),
-('Roda Gigante Celestial', 32, 'Normal', 'C');
+INSERT INTO areas (name) VALUES
+("Mistieri"),
+("Kaminda Mundi"),
+("Aribabiba"),
+("Infantasia"),
+("Wild West");
+
+INSERT INTO rides (name, waiting_time, status, id_areas) VALUES
+('Montanha Mágica', 35, 'Muito Movimentado',1),
+('Carrossel Encantado', 15, 'Normal',2),
+('Roda Gigante Celestial', 32, 'Normal',3);
 
 INSERT INTO `lines`(id_user, id_ride) VALUES
 ('7','7'),
