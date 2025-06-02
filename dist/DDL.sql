@@ -40,7 +40,11 @@ CREATE TABLE IF NOT EXISTS `hopi_hari_db`.`rides` (
   `waiting_time` INT NOT NULL,
   `status` VARCHAR(50) NOT NULL,
   `id_areas` INT NOT NULL,
+<<<<<<< HEAD
+  PRIMARY KEY (`id`, `id_areas`),
+=======
   PRIMARY KEY (`id`),
+>>>>>>> 12fa7c2ef6b6f4d6e78bac59d355456bdd766b93
   INDEX `fk_rides_areas1_idx` (`id_areas` ASC) VISIBLE,
   CONSTRAINT `fk_rides_areas1`
     FOREIGN KEY (`id_areas`)
@@ -48,10 +52,20 @@ CREATE TABLE IF NOT EXISTS `hopi_hari_db`.`rides` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 10
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
+
+
+-- -----------------------------------------------------
+-- Table `hopi_hari_db`.`areas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hopi_hari_db`.`areas` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `hopi_hari_db`.`users`
