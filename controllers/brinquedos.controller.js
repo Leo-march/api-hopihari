@@ -3,13 +3,13 @@ const mysql = require('../mysql');
 exports.cadastrarBrinquedo = async (req, res) => {
     try{
         const resultados = await mysql.execute(`
-            INSERT INTO rides (name,waiting_time, status, area)
+            INSERT INTO rides (name,waiting_time, status, id_areas)
             VALUES (?,?,?,?)
             `,[
                 req.body.name,
                 req.body.waiting_time,
                 req.body.status,
-                req.body.area
+                req.body.id_areas
             ]
         );
     return res.status(201).send({
@@ -21,7 +21,7 @@ exports.cadastrarBrinquedo = async (req, res) => {
     }
 }
 
-exports.getBrinquedos = async (req, res) => {
+exports.getBrinquedosByAreaName = async (req, res) => {
     try {
         const resultados = await mysql.execute(`
             SELECT * FROM rides WHERE id_areas = (
