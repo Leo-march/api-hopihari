@@ -2,36 +2,6 @@ const mysql = require("../mysql");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-
-exports.atualizarUsuario = async (req, res) => {
-    try {
-        const idUsuario = Number(req.params.id);
-
-        // Criptografa a senha antes de armazená-la
-        const hash = await bcrypt.hash(req.body.password, 10);
-
-        const resultados = await mysql.execute(
-            `UPDATE users
-                SET name = ?,
-                    email = ?,
-                    password = ?
-                where id = ?;`,
-            [
-                req.body.name,
-                req.body.email,
-                hash,
-                idUsuario
-            ]
-        );
-        return res.status(201).send({
-            "Mensagem": "Usuário atualizado com sucesso!",
-            "Resultado": resultados
-        })
-    } catch (error) {
-        return res.status(500).send({error})
-    }
-}
-
 exports.criarUsuario = async (req, res) => {
     try {
         // Criptografa a senha antes de armazená-la
@@ -108,25 +78,20 @@ exports.login = async (req, res) => {
 exports.editarUsuario = async (req, res) => {
     try {
 
-        // Criptografa a senha antes de armazená-la
-        const hash = await bcrypt.hash(req.body.password, 10);
-
         const resultados = await mysql.execute(
             `UPDATE users
                 SET first_name = ?,
-                    last_name = ?,
-                    email = ?
-                    password = ?
-                    birth_date = ?
-                    phone = ?`,
+                    last_name  = ?,
+                    email      = ?,
+                    birth_date = ?,
+                    phone = ?
+              WHERE id    = ?`,
             [
                 req.body.first_name,
                 req.body.last_name,
                 req.body.email,
-                req.body.password,
                 req.body.birth_date,
-                req.body.phone,
-                hash
+                req.body.phone
             ]
         );
         return res.status(201).send({

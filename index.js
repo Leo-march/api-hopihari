@@ -27,7 +27,6 @@ app.use((req, res, next) => {
 
   app.use("/usuarios", usuariosRoute); // Rota de login
   app.use("/filas", filasRoute); // Rota de FIlas
-  app.use("/filas", filasRoute);
   app.use("/Notifications", notificationsRoute); // Rota de notificações
   app.use("/brinquedos", brinquedosRoute); // Rota de brinquedos)
 
