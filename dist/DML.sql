@@ -95,3 +95,27 @@ VALUES ("Giranda Mundi", 5, "Aberto", (SELECT id FROM areas WHERE name = "Kamind
 -- Speedi 64 - Infantasia
 INSERT INTO rides(name, waiting_time, status, id_areas)
 VALUES ("Speedi 64", 2, "Aberto", (SELECT id FROM areas WHERE name = "Infantasia"));
+
+
+-- Queries UPDATE para definir imagens das atrações
+UPDATE rides SET image = "crazywsagon.jpg" WHERE name = "Crazy Wagon";
+UPDATE rides SET image = "ekatomb.jpg" WHERE name = "Ekatomb";
+UPDATE rides SET image = "elektron.jpg" WHERE name = "Elektron";
+UPDATE rides SET image = "espetaculoderua.jpg" WHERE name = "Espetáculo de Rua";
+UPDATE rides SET image = "evolution.jpg" WHERE name = "Evolution";
+UPDATE rides SET image = "ghostihotel.jpg" WHERE name = "Ghosti Hotel";
+UPDATE rides SET image = "girandamundi.jpg" WHERE name = "Giranda Mund";
+UPDATE rides SET image = "infocentro.jpg" WHERE name = "InfoCentro";
+UPDATE rides SET image = "kasteldilendas.jpg" WHERE name = "Kastel di Lendas";
+UPDATE rides SET image = "katakumb.jpg" WHERE name = "Katakumb";
+UPDATE rides SET image = "montanha russa torre eiffel.jpg" WHERE name = "La Tour Eiffel";
+UPDATE rides SET image = "montezum.webp" WHERE name = "Montezum";
+UPDATE rides SET image = "riobravo.png" WHERE name = "Rio Bravo";
+UPDATE rides SET image = "saloonshow.webp" WHERE name = "Saloon Show";
+UPDATE rides SET image = "simulakron.jpg" WHERE name = "Simulakron";
+UPDATE rides SET image = "speed64.jpg" WHERE name = "Speedi 64";
+UPDATE rides SET image = "theatrodikaminda.jpg" WHERE name = "Theatro di Kaminda";
+UPDATE rides SET image = "tokadouga.jpg" WHERE name = "Toka do Uga";
+UPDATE rides SET image = "vambate.avif" WHERE name = "Vambatê";
+UPDATE rides SET image = "vurang.jpg" WHERE name = "Vurang";
+UPDATE rides SET image = "westriverhotel.jpg" WHERE name = "West River Hotel";  
